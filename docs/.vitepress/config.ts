@@ -283,7 +283,7 @@ export default defineConfig({
               link: '/guide/static-deploy',
             },
             {
-              text: 'Variables d'environnement et Modes',
+              text: 'Variables d\'environnement et Modes',
               link: '/guide/env-and-mode',
             },
             {
@@ -388,7 +388,7 @@ export default defineConfig({
               link: '/config/preview-options',
             },
             {
-              text: 'Options d‘optimisation des dépendances',
+              text: 'Options d\'optimisation des dépendances',
               link: '/config/dep-optimization-options',
             },
             {
@@ -427,7 +427,7 @@ export default defineConfig({
               link: '/changes/per-environment-apis',
             },
             {
-              text: 'Rendu côté serveur (SSR) avec l‘API ModuleRunner',
+              text: 'Rendu côté serveur (SSR) avec l\'API ModuleRunner',
               link: '/changes/ssr-using-modulerunner',
             },
             {
