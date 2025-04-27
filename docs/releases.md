@@ -2,7 +2,7 @@
 
 Vite suis la norme [Semantic Versioning](https://semver.org/). Vous pouvez voir la dernière version stable de Vite sur la [page npm de Vite](https://www.npmjs.com/package/vite).
 
-L'historique des releases passées est [disponible sur GitHub](https://github.com/vitejs/vite/blob/main/packages/vite/CHANGELOG.md).
+L'historique des releases précédentes est [disponible sur GitHub](https://github.com/vitejs/vite/blob/main/packages/vite/CHANGELOG.md).
 
 ## Cycle des releases
 
@@ -14,19 +14,19 @@ Vite n’a pas de cycle de release fixe.
 
 La portée des versions de Vite supportée par l’équipe Vite est déterminée automatiquement par :
 
-- **La version Mineur actuelle** reçoit des correctifs réguliers.
-- **La version Majeur précédente** (seulement pour sa dernière mineure) et **la version Mineur précédente** reçoivent des correctifs importants et des correctifs de sécurité.
-- **L'avant dernière version Majeure** (seulement pour sa dernière mineure) et **l'avant dernière version Mineure** reçoivent des correctifs de sécurité.
+- **La version mineur actuelle** reçoit des correctifs réguliers.
+- **La version majeur précédente** (seulement pour sa dernière mineure) et **la version mineur précédente** reçoivent des correctifs importants et des correctifs de sécurité.
+- **L'avant dernière version majeure** (seulement pour sa dernière mineure) et **l'avant dernière version mineure** reçoivent des correctifs de sécurité.
 - Toutes les versions avant celles-ci ne sont plus supportées.
 
-Par exemple, si la dernière version de Vite est la version 5.4.10 :
+Par exemple, si la dernière version de Vite est la version 5.3.10 :
 
 - Les correctifs réguliers sont publiés pour`vite@5.3`.
 - Les correctifs importants et les correctifs de sécurité sont rétroporté à `vite@4`et`vite@5.2`.
 - Les correctifs de sécurité sont également rétroporté à`vite@3`, et`vite@5.1`.
 - `vite@2`et `vite@5.0`ne sont plus supportés. Les utilisateurs doivent mettre à jour leur version pour recevoir des mises à jour.
 
-Nous recommandons de mettre à jour Vite régulièrement. Consultez les [guides de migration](https://fr.vite.dev/guide/migration.html) lorsque vous mettez à jour vers chaque Majeur. L’équipe Vite travaille en étroite collaboration avec les principaux projets de l’écosystème pour garantir la qualité des nouvelles versions. Nous testons les nouvelles versions de Vite avant de les publier via le projet [vite-ecosystem-ci](https://github.com/vitejs/vite-ecosystem-ci). La plupart des projets utilisant Vite devraient être en mesure de proposer un support ou de migrer vers de nouvelles versions dès qu’elles sont publiées.
+Nous recommandons de mettre à jour Vite régulièrement. Consultez les [guides de migration](https://fr.vite.dev/guide/migration.html) lorsque vous mettez à jour vers chaque version majeur. L’équipe Vite travaille en étroite collaboration avec les principaux projets de l’écosystème pour garantir la qualité des nouvelles versions. Nous testons les nouvelles versions de Vite avant de les publier via le projet [vite-ecosystem-ci](https://github.com/vitejs/vite-ecosystem-ci). La plupart des projets utilisant Vite devraient être en mesure de proposer un support ou de migrer vers de nouvelles versions dès qu’elles sont publiées.
 
 ## Cas à la marge du Semantic Versioning
 
@@ -35,8 +35,8 @@ Nous recommandons de mettre à jour Vite régulièrement. Consultez les [guides 
 Il est possible que nous incorporions des changements incompatibles avec les définitions TypeScript, entre les versions mineur. Cela est dû au fait que :
 
 - Parfois, TypeScript lui-même publie des changements incompatibles entre les versions mineures, et nous devons ajuster les types pour supporter de nouvelles versions de TypeScript.
-- Occasionnellement nous devons adopter des fonctionnalités qui ne sont disponibles que dans une nouvelle version de TypeScript, ce qui augmente la version minimale requise de TypeScript.
-- Si vous utilisez TypeScript, vous pouvez utiliser une version semver qui verrouille la dernière version mineure et mettre à jour manuellement lorsqu’une nouvelle version mineure de Vite est publiée.
+- Occasionnellement, nous devons adopter des fonctionnalités qui ne sont disponibles que dans une nouvelle version de TypeScript, ce qui augmente la version minimale requise de TypeScript.
+- Si vous utilisez TypeScript, vous pouvez utiliser une version semver qui verrouille la dernière version mineure et se met à jour manuellement lorsqu’une nouvelle version mineure de Vite est publiée.
 
 ### esbuild
 
@@ -58,4 +58,4 @@ Nous déprécions périodiquement des fonctionnalités qui ont été remplacées
 
 ## Fonctionnalités expérimentales
 
-Certaines fonctionnalités sont marquées comme expérimentales lorsqu’elles sont publiées dans une version stable de Vite. Les fonctionnalités expérimentales nous permettent de collecter des retours d’utilisation dans le monde réel pour influencer leur conception finale. L'objectif est de permettre aux utilisateurs de fournir des retours en testant ces fonctionnalités en production. Les fonctionnalités expérimentales sont, par définition, considérées comme instables et ne doivent être utilisées que dans un environnement contrôlé. Ces fonctionnalités peuvent changer entre deux versions Mineures, aussi les utilisateurs doivent épingler (pin) la version exacte de Vite lorsqu'ils en dépendent. Nous créerons une [discussion GitHub](https://github.com/vitejs/vite/discussions/categories/feedback?discussions_q=is%3Aopen+label%3Aexperimental+category%3AFeedback) pour chaque fonctionnalité expérimentale.
+Certaines fonctionnalités sont marquées comme expérimentales lorsqu’elles sont publiées dans une version stable de Vite. Les fonctionnalités expérimentales nous permettent de collecter des retours d’utilisation dans le monde réel pour influencer leur conception finale. L'objectif est de permettre aux utilisateurs de fournir des retours en testant ces fonctionnalités en production. Les fonctionnalités expérimentales sont, par définition, considérées comme instables et ne doivent être utilisées que dans un environnement contrôlé. Ces fonctionnalités peuvent changer entre deux versions mineures, aussi les utilisateurs doivent épingler (pin) la version exacte de Vite lorsqu'ils en dépendent. Nous créerons une [discussion GitHub](https://github.com/vitejs/vite/discussions/categories/feedback?discussions_q=is%3Aopen+label%3Aexperimental+category%3AFeedback) pour chaque fonctionnalité expérimentale.
