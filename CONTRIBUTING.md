@@ -1,69 +1,74 @@
-# Vite Contributing Guide
+# Guide de contribution à Vite
 
-Hi! We're really excited that you're interested in contributing to Vite! Before submitting your contribution, please read through the following guide. We also suggest you read the [Project Philosophy](https://vitejs.dev/guide/philosophy) in our documentation.
+Nous sommes très heureux que vous souhaitiez contribuer à Vite ! Avant de soumettre votre contribution, veuillez lire le guide suivant. Nous vous suggérons également de lire la [Philosophie du projet](https://fr.vitejs.dev/guide/philosophy) dans notre documentation.
 
-You can use [StackBlitz Codeflow](https://stackblitz.com/codeflow) to fix bugs or implement features. You'll see a Codeflow button on issues to start a PR to fix them. A button will also appear on PRs to review them without needing to check out the branch locally. When using Codeflow, the Vite repository will be cloned for you in an online editor, with the Vite package built in watch mode ready to test your changes. If you'd like to learn more, check out the [Codeflow docs](https://developer.stackblitz.com/codeflow/what-is-codeflow).
+Vous pouvez utiliser [StackBlitz Codeflow](https://stackblitz.com/codeflow) pour corriger les bugs ou implémenter des fonctionnalités. Vous verrez un bouton Codeflow sur les bugs pour commencer une PR pour les corriger. Un bouton apparaîtra également sur les PR pour les revoir sans avoir besoin de vérifier la branche localement. Lorsque vous utilisez Codeflow, le dépôt Vite sera cloné pour vous dans un éditeur en ligne, avec le package Vite build en mode observateur (watch) prêt à tester vos modifications. Si vous souhaitez en savoir plus, consultez la [documentation Codeflow](https://developer.stackblitz.com/codeflow/what-is-codeflow).
 
-[![Open in Codeflow](https://developer.stackblitz.com/img/open_in_codeflow.svg)](https://pr.new/vitejs/vite)
 
-## Repo Setup
+[![Ouvrir dans Codeflow](https://developer.stackblitz.com/img/open_in_codeflow.svg)](https://pr.new/vitejs/vite)
 
-To develop locally, fork the Vite repository and clone it in your local machine. The Vite repo is a monorepo using pnpm workspaces. The package manager used to install and link dependencies must be [pnpm](https://pnpm.io/).
+## Configuration du dépôt
 
-To develop and test the core `vite` package:
+Pour développer en local, forkez le dépôt Vite et clonez-le sur votre machine locale. Le dépôt Vite est un monorepo utilisant pnpm workspaces. Le gestionnaire de paquets utilisé pour installer et lier les dépendances doit être [pnpm](https://pnpm.io/).
 
-1. Run `pnpm i` in Vite's root folder.
 
-2. Run `pnpm run build` in Vite's root folder.
+Pour développer et tester le package du noyau `vite`:
 
-3. If you are developing Vite itself, you can go to `packages/vite` and run `pnpm run dev` to automatically rebuild Vite whenever you change its code.
+1. Exécutez `pnpm i` dans le répertoire racine de Vite.
 
-You can alternatively use [Vite.js Docker Dev](https://github.com/nystudio107/vitejs-docker-dev) for a containerized Docker setup for Vite.js development.
+2. Lancer `pnpm run build` dans le répertoire racine de Vite.
 
-> Vite uses pnpm v8. If you are working on multiple projects with different versions of pnpm, it's recommended to enable [Corepack](https://github.com/nodejs/corepack) by running `corepack enable`.
+3. Si vous développez sur Vite en lui-même, vous pouvez aller dans `packages/vite` et lancer `pnpm run dev` pour re-build Vite automatiquement chaque fois que vous changez son code.
 
-### Ignoring commits when running `git blame`
+Vous pouvez également utiliser [Vite.js Docker Dev](https://github.com/nystudio107/vitejs-docker-dev) pour disposer d'un container Docker configuré pour le développement de Vite.
 
-We have a `.git-blame-ignore-revs` file to ignore formatting changes.
-To make this file used by `git blame`, you need to run the following command.
+> Vite utilise pnpm v8. Si vous travaillez sur plusieurs projets avec différentes versions de pnpm, il est recommandé d’activer [Corepack](https://github.com/nodejs/corepack) en lançant `corepack enable`.
+
+### Ignorer les commits lors de l’exécution de `git blame`
+
+Nous avons un fichier `.git-blame-ignore-revs` pour ignorer les modifications de formatage.
+Pour que ce fichier soit utilisé par`git blame`, vous devez lancer la commande suivante.
 
 ```sh
 git config --local blame.ignoreRevsFile .git-blame-ignore-revs
 ```
 
-## Debugging
+## Débogage
 
-To use breakpoints and explore code execution, you can use the ["Run and Debug"](https://code.visualstudio.com/docs/editor/debugging) feature from VS Code.
+Pour utiliser les points d’arrêt et explorer l’exécution du code, vous pouvez utiliser la fonctionnalité [« Run and Debug »](https://code.visualstudio.com/docs/editor/debugging) de VS Code.
 
-1. Add a `debugger` statement where you want to stop the code execution.
+1. Ajoutez une instruction `debugger` dans le hook `afterAll` de `playground/vitestSetup.ts`. Cela mettra en pause l’exécution avant que les tests ne quittent et l’instance de navigateur Playwright ne quitte.
 
-2. Click the "Run and Debug" icon in the activity bar of the editor, which opens the [_Run and Debug view_](https://code.visualstudio.com/docs/editor/debugging#_run-and-debug-view).
+2. Cliquez sur l’icône « Run and Debug » dans la barre d’activité de l’éditeur, qui ouvre la vue [_Run and Debug_](https://code.visualstudio.com/docs/editor/debugging#_run-and-debug-view).
 
-3. Click the "JavaScript Debug Terminal" button in the _Run and Debug view_, which opens a terminal in VS Code.
+3. Cliquez sur le bouton « JavaScript Debug Terminal » dans la vue [_Run and Debug_](https://code.visualstudio.com/docs/editor/debugging#_run-and-debug-view), qui ouvre un terminal dans VS Code.
 
-4. From that terminal, go to `playground/xxx`, and run `pnpm run dev`.
+4. Depuis ce terminal, allez dans`playground/xxx` et lancez`pnpm run dev`.
 
-5. The execution will stop at the `debugger` statement, and you can use the [Debug toolbar](https://code.visualstudio.com/docs/editor/debugging#_debug-actions) to continue, step over, and restart the process...
+5. L’exécution s’arrêtera à l’instruction`debugger` et vous pouvez utiliser la [Barre de débogage](https://code.visualstudio.com/docs/editor/debugging#_debug-actions) pour continuer, passez à l’étape suivante et redémarrez le processus…
 
-### Debugging Errors in Vitest Tests Using Playwright (Chromium)
+### Débogage des erreurs dans les tests Vitest, en utilisant Playwright (Chromium)
 
-Some errors are masked and hidden away because of the layers of abstraction and sandboxed nature added by Vitest, Playwright, and Chromium. In order to see what's actually going wrong and the contents of the devtools console in those instances, follow this setup:
+Certaines erreurs sont masquées et cachées en raison des couches d'abstraction et de la nature sandboxée rajoutée par Vitest, Playwright et Chromium. Afin de voir, dans ces instances, ce qui se échoue réellement et le contenu de la console de devtools, suivez cette configuration :
 
-1. Add a `debugger` statement to the `playground/vitestSetup.ts` -> `afterAll` hook. This will pause execution before the tests quit and the Playwright browser instance exits.
+1. Ajoutez une instruction `debugger` dans le hook `afterAll` de `playground/vitestSetup.ts`. Cela mettra en pause l’exécution avant que les tests ne se termine et que l’instance de navigateur Playwright ne se ferme.
 
-2. Run the tests with the `debug-serve` script command, which will enable remote debugging: `pnpm run debug-serve resolve`.
+2. Lancez les tests avec la commande de script `debug-serve`, qui activera le débogage distant : `pnpm run debug-serve resolve`.
 
-3. Wait for inspector devtools to open in your browser and the debugger to attach.
+3. Attendez que le devtools de l’inspecteur s’ouvre dans votre navigateur et que le débogage soit attaché.
 
-4. In the sources panel in the right column, click the play button to resume execution, and allow the tests to run, which will open a Chromium instance.
+4. Dans le panneau des sources dans la colonne de droite, cliquez sur le bouton de lecture pour reprendre l’exécution et permettre aux tests de s’exécuter, ce qui ouvrira une instance de Chromium.
 
-5. Focusing the Chromium instance, you can open the browser devtools and inspect the console there to find the underlying problems.
+5. En sélectionnant l’instance de Chromium, vous pouvez ouvrir les outils de développement du navigateur et inspecter la console pour trouver les problèmes sous-jacents.
 
-6. To close everything, just stop the test process back in your terminal.
+6. Pour tout fermer, arrêtez simplement le processus de test dans votre terminal.
 
-## Testing Vite against external packages
+## Test de Vite avec des packages externes
 
 You may wish to test your locally modified copy of Vite against another package that is built with Vite. For pnpm, after building Vite, you can use [`pnpm.overrides`](https://pnpm.io/package_json#pnpmoverrides) to do this. Note that `pnpm.overrides` must be specified in the root `package.json`, and you must list the package as a dependency in the root `package.json`:
+
+Vous pourriez souhaiterez de tester votre copie modifiée de Vite sun un autre package buildé avec Vite. Avec pnpm, après avoir build Vite, vous pouvez utiliser [`pnpm.overrides`](https://pnpm.io/package_json#pnpmoverrides) pour cela. Notez que `pnpm.overrides` doit être spécifié dans la `package.json` à la racine et vous devez y lister le package comme une dépendance dans ce `package.json` :
+
 
 ```json
 {
@@ -78,41 +83,42 @@ You may wish to test your locally modified copy of Vite against another package 
 }
 ```
 
-And re-run `pnpm install` to link the package.
+Puis, relancez `pnpm install` pour lier ce package.
 
-## Running Tests
+## Exécution des tests
 
-### Integration Tests
+### Tests d’intégration
 
-Each package under `playground/` contains a `__tests__` directory. The tests are run using [Vitest](https://vitest.dev/) + [Playwright](https://playwright.dev/) with custom integrations to make writing tests simple. The detailed setup is inside `vitest.config.e2e.js` and `playground/vitest*` files.
+Chaque package sous `playground/` contient un répertoire `__tests__`. Les tests sont exécutés en utilisant [Vitest](https://vitest.dev/) + [Playwright](https://playwright.dev/) avec des intégrations personnalisées pour rendre l’écriture de tests simple. La configuration détaillée se trouve à l’intérieur de `vitest.config.e2e.js`et des fichiers`playground/vitest*`.
 
-Some playgrounds define variants to run the same app using different config setups. By convention, when running a test spec file in a nested folder in `__tests__`, the setup will try to use a config file named `vite.config-{folderName}.js` at the playground's root. You can see an example of variants in the [assets playground](https://github.com/vitejs/vite/tree/main/playground/assets).
+Certains playgrounds définissent des variantes pour exécuter la même application avec différentes configurations. Par convention, lorsque vous exécutez un fichier de spécification de test, dans un répertoire imbriqué dans `__tests__`, le configuration tentera d’utiliser un fichier nommé `vite.config-{folderName}.js` situé à la racine du playground. Vous pouvez voir un exemple de variantes dans le [playground des assets](https://github.com/vitejs/vite/tree/main/playground/assets).
 
-Before running the tests, make sure that [Vite has been built](#repo-setup). On Windows, you may want to [activate Developer Mode](https://docs.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development) to resolve [issues with symlink creation for non-admins](https://github.com/vitejs/vite/issues/7390). Also, you may want to [set git `core.symlinks` to `true` to resolve issues with symlinks in git](https://github.com/vitejs/vite/issues/5242).
+Avant d’exécuter les tests, assurez-vous que [Vite a bien été build](#repo-setup). Sur Windows, vous souhaiteriez peut-être [activer le mode Développeur](https://docs.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development) pour résoudre [les problèmes avec la création de liens symboliques pour les non-administrateurs](https://github.com/vitejs/vite/issues/7390). De plus, vous souhaiteriez peut-être [définir `core.symlinks` à `true` pour résoudre les problèmes avec les liens symboliques dans git](https://github.com/vitejs/vite/issues/5242).
 
-Each integration test can be run under either dev server mode or build mode.
+Chaque test d’intégration peut être exécuté soit en mode serveur, soit en mode build.
 
-- `pnpm test` by default runs every integration test in both serve and build mode, and also unit tests.
+- `pnpm test` par défaut, exécute tous les tests d’intégration dans les modes serveur et build, ainsi que les tests unitaires.
 
-- `pnpm run test-serve` runs tests only under serve mode.
+- `pnpm run test-serve` exécute les tests uniquement en mode serveur.
 
-- `pnpm run test-build` runs tests only under build mode.
+- `pnpm run test-build` exécute les tests uniquement en mode build.
 
-- `pnpm run test-serve [match]` or `pnpm run test-build [match]` runs tests in specific packages that match the given filter. e.g. `pnpm run test-serve asset` runs tests for both `playground/asset` and `vite/src/node/__tests__/asset` under serve mode.
+- `pnpm run test-serve [match]` ou `pnpm run test-build [match]` exécute les tests dans des packages spécifiques qui correspondent au filtre donné. Par exemple, `pnpm run test-serve asset` exécute les tests pour les deux `playground/asset` et `vite/src/node/__tests__/asset` en le mode serveur.
 
-  Note package matching is not available for the `pnpm test` script, which always runs all tests.
+Note : Le filtrage des packages n’est pas disponible pour le script `pnpm test`, qui exécute tous les tests.
 
-### Unit Tests
+### Tests unitaires
 
-Other than tests under `playground/` for integration tests, packages might contain unit tests under their `__tests__` directory. Unit tests are powered by [Vitest](https://vitest.dev/). The detailed config is inside `vitest.config.ts` files.
+Outre les tests sous `playground/` pour les tests d’intégration, les packages peuvent contenir des tests unitaires sous leur répertoire `__tests__`. Les tests unitaires sont alimentés par [Vitest](https://vitest.dev/). La configuration détaillée est à l’intérieur des fichiers`vitest.config.ts`.
 
-- `pnpm run test-unit` runs unit tests under each package.
+- `pnpm run test-unit` exécute les tests unitaires de chaque package.
 
-- `pnpm run test-unit [match]` runs tests in specific packages that match the given filter.
+- `pnpm run test-unit [match]` exécute les tests dans des packages spécifiques qui correspondent au filtre donné.
 
-### Test Env and Helpers
+### Environnement de test et helpers
 
-Inside playground tests, you can import the `page` object from `~utils`, which is a Playwright [`Page`](https://playwright.dev/docs/api/class-page) instance that has already navigated to the served page of the current playground. So, writing a test is as simple as:
+Dans les tests sous playground, vous pouvez importer l’objet `page` depuis `~utils`, qui est une instance de [`Page`](https://playwright.dev/docs/api/class-page) de Playwright ayant déjà navigué vers la page servie du playground actuel. Donc, écrire un test est aussi simple que :
+
 
 ```js
 import { page } from '~utils'
@@ -121,8 +127,7 @@ test('should work', async () => {
   expect(await page.textContent('.foo')).toMatch('foo')
 })
 ```
-
-Some common test helpers (e.g. `testDir`, `isBuild`, or `editFile`) are also available in the utils. Source code is located at `playground/test-utils.ts`.
+Certains helpers communs (e.g.`testDir`, `isBuild`, ou `editFile`) sont également disponibles dans les utils. Le code source est situé dans `playground/test-utils.ts`.
 
 Note: The test build environment uses a [different default set of Vite config](https://github.com/vitejs/vite/blob/main/playground/vitestSetup.ts#L102-L122) to skip transpilation during tests to make it faster. This may produce a different result compared to the default production build.
 
