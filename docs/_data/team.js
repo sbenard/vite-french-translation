@@ -2,10 +2,10 @@ export const core = [
   {
     avatar: 'https://www.github.com/yyx990803.png',
     name: 'Evan You',
-    title: 'Créateur',
+    title: 'Creator',
     org: 'Vue.js',
     orgLink: 'https://vuejs.org/',
-    desc: 'Développeur open source indépendant, créateur de Vue.js et de Vite.',
+    desc: 'Independent open source developer, creator of Vue.js and Vite.',
     links: [
       { icon: 'github', link: 'https://github.com/yyx990803' },
       { icon: 'x', link: 'https://x.com/youyuxi' },
@@ -16,10 +16,10 @@ export const core = [
   {
     avatar: 'https://www.github.com/patak-dev.png',
     name: 'Patak',
-    title: 'Un être collaboratif',
+    title: 'A collaborative being',
     org: 'StackBlitz',
     orgLink: 'https://stackblitz.com/',
-    desc: 'Membre de la Core Team Vite. Membre de l\'équipe Vue.',
+    desc: 'Core team member of Vite. Team member of Vue.',
     links: [
       { icon: 'github', link: 'https://github.com/patak-dev' },
       { icon: 'bluesky', link: 'https://bsky.app/profile/patak.dev' },
@@ -30,10 +30,10 @@ export const core = [
   {
     avatar: 'https://www.github.com/antfu.png',
     name: 'Anthony Fu',
-    title: 'Open sourcier fanatique',
+    title: 'A fanatical open sourceror',
     org: 'NuxtLabs',
     orgLink: 'https://nuxtlabs.com/',
-    desc: 'Membre des équipes principales Vite & Vue. Travaille pour NuxtLabs.',
+    desc: 'Core team member of Vite & Vue. Working at NuxtLabs.',
     links: [
       { icon: 'github', link: 'https://github.com/antfu' },
       { icon: 'bluesky', link: 'https://bsky.app/profile/antfu.me' },
@@ -44,8 +44,8 @@ export const core = [
   {
     avatar: 'https://github.com/bluwy.png',
     name: 'Bjorn Lu',
-    title: 'Développeur Open Source',
-    desc: 'Fait des outils pour le plaisir.',
+    title: 'Open Source Developer',
+    desc: 'Building tools for fun.',
     links: [
       { icon: 'github', link: 'https://github.com/bluwy' },
       { icon: 'bluesky', link: 'https://bsky.app/profile/bluwy.me' },
@@ -57,8 +57,8 @@ export const core = [
   {
     avatar: 'https://github.com/sapphi-red.png',
     name: 'green',
-    title: 'Développeur',
-    desc: 'Membre de la Core Team Vite. Appellez moi sapphi ou green ou midori ;)',
+    title: 'Web Developer',
+    desc: 'Vite core team member. Call me sapphi or green or midori ;)',
     links: [
       { icon: 'github', link: 'https://github.com/sapphi-red' },
       { icon: 'bluesky', link: 'https://bsky.app/profile/sapphi.red' },
@@ -70,8 +70,8 @@ export const core = [
   {
     avatar: 'https://github.com/ArnaudBarre.png',
     name: 'Arnaud Barré',
-    title: 'Développeur Frontend',
-    desc: 'Passionné par les outils en rapport avec TypeScript et React.',
+    title: 'Frontend Developer',
+    desc: 'Passionate by tooling around TypeScript and React.',
     links: [
       { icon: 'github', link: 'https://github.com/ArnaudBarre' },
       {
@@ -85,8 +85,8 @@ export const core = [
   {
     avatar: 'https://github.com/dominikg.png',
     name: 'Dominik G.',
-    title: 'Spécialiste de la CI',
-    desc: 'Membre des équipes Vite et Svelte',
+    title: 'Resident CI Expert',
+    desc: 'Team Member of Vite and Svelte',
     links: [
       { icon: 'github', link: 'https://github.com/dominikg' },
       { icon: 'mastodon', link: 'https://elk.zone/m.webtoo.ls/@dominikg' },
@@ -96,8 +96,8 @@ export const core = [
   {
     avatar: 'https://github.com/sheremet-va.png',
     name: 'Vladimir',
-    title: 'Membre des équipes principales Vitest & Vite',
-    desc: 'Développeur fullstack open source',
+    title: 'Core team member of Vitest & Vite',
+    desc: 'An open source fullstack developer',
     links: [
       { icon: 'github', link: 'https://github.com/sheremet-va' },
       { icon: 'bluesky', link: 'https://bsky.app/profile/erus.dev' },
@@ -108,8 +108,8 @@ export const core = [
   {
     avatar: 'https://github.com/hi-ogawa.png',
     name: 'Hiroshi Ogawa',
-    title: 'Membre des équipes Vitest & Vite',
-    desc: 'Enthousiaste de l\'open source',
+    title: 'Team Member of Vitest & Vite',
+    desc: 'Open source enthusiast',
     links: [
       { icon: 'github', link: 'https://github.com/hi-ogawa' },
       { icon: 'bluesky', link: 'https://bsky.app/profile/hiogawa.bsky.social' },
@@ -119,7 +119,7 @@ export const core = [
   {
     avatar: 'https://github.com/btea.png',
     name: 'btea',
-    title: 'Développeur web',
+    title: 'Web Developer',
     links: [{ icon: 'github', link: 'https://github.com/btea' }],
   },
 ]
@@ -129,7 +129,7 @@ export const emeriti = [
     avatar: 'https://i.imgur.com/KMed6rQ.jpeg',
     name: 'Alec Larson',
     title: 'Entrepreneur',
-    desc: 'Adore le commerce social, les méta-frameworks et les jeux de plateaux',
+    desc: 'Dabbling in social ecommerce, meta frameworks, and board games',
     links: [
       { icon: 'github', link: 'https://github.com/aleclarson' },
       { icon: 'x', link: 'https://x.com/retropragma' },
@@ -142,8 +142,8 @@ export const emeriti = [
   {
     avatar: 'https://github.com/poyoho.png',
     name: 'yoho',
-    title: 'Développeur frontend',
-    desc: 'Frontend. Membre de l\'équipe Vite.',
+    title: 'Frontend Developer',
+    desc: 'Frontend. Vite team member.',
     links: [
       { icon: 'github', link: 'https://github.com/poyoho' },
       { icon: 'x', link: 'https://x.com/yoho_po' },
@@ -152,8 +152,8 @@ export const emeriti = [
   {
     avatar: 'https://github.com/ygj6.png',
     name: 'ygj6',
-    title: 'Développeur',
-    desc: 'Développeur Web. Membre des équipes Vue & Vite',
+    title: 'Developer',
+    desc: 'Web Developer. Vue & Vite team member',
     links: [
       { icon: 'github', link: 'https://github.com/ygj6' },
       { icon: 'x', link: 'https://x.com/ygj_66' },
@@ -162,9 +162,9 @@ export const emeriti = [
   {
     avatar: 'https://github.com/Niputi.png',
     name: 'Niputi',
-    title: 'Développeur',
-    org: 'Computershare Danemark',
-    desc: 'weeb / passionné de JavaScript.',
+    title: 'Developer',
+    org: 'Computershare Denmark',
+    desc: 'weeb/javascript lover.',
     links: [
       { icon: 'github', link: 'https://github.com/Niputi' },
       { icon: 'x', link: 'https://x.com/Niputi_' },
@@ -174,13 +174,13 @@ export const emeriti = [
   {
     avatar: 'https://github.com/underfin.png',
     name: 'underfin',
-    title: 'Développeur',
+    title: 'Developer',
     links: [{ icon: 'github', link: 'https://github.com/underfin' }],
   },
   {
     avatar: 'https://github.com/GrygrFlzr.png',
     name: 'GrygrFlzr',
-    title: 'Développeur',
+    title: 'Developer',
     links: [
       { icon: 'github', link: 'https://github.com/GrygrFlzr' },
       { icon: 'bluesky', link: 'https://bsky.app/profile/bsky.cybeast.dev' },
@@ -189,16 +189,16 @@ export const emeriti = [
   {
     avatar: 'https://github.com/nihalgonsalves.png',
     name: 'Nihal Gonsalves',
-    title: 'Ingénieur logiciel senior',
+    title: 'Senior Software Engineer',
     links: [{ icon: 'github', link: 'https://github.com/nihalgonsalves' }],
   },
   {
     avatar: 'https://github.com/Shinigami92.png',
     name: 'Shinigami',
-    title: 'Ingénieur frontend senior',
+    title: 'Senior Frontend Engineer',
     org: 'Faker',
     orgLink: 'https://fakerjs.dev',
-    desc: 'Passionné par TypeScript, travaille intensivement avec des SPA Vue.',
+    desc: 'Passionate TypeScript enthusiast working extensively with Vue SPA.',
     links: [
       { icon: 'github', link: 'https://github.com/Shinigami92' },
       { icon: 'mastodon', link: 'https://elk.zone/mas.to/@Shini92' },
@@ -207,10 +207,10 @@ export const emeriti = [
   {
     avatar: 'https://github.com/haoqunjiang.png',
     name: 'Haoqun Jiang',
-    title: 'Membre de la Core Team',
+    title: 'Core Team Member',
     org: 'Vue.js',
     orgLink: 'https://vuejs.org/',
-    desc: 'Garant des bonnes pratiques pour les outils Vue.js',
+    desc: 'Curator of best practices for Vue.js tooling',
     links: [
       { icon: 'github', link: 'https://github.com/haoqunjiang' },
       { icon: 'bluesky', link: 'https://bsky.app/profile/haoqun.dev' },

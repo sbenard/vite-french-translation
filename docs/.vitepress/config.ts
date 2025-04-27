@@ -9,7 +9,7 @@ import llmstxt from 'vitepress-plugin-llms'
 import type { PluginOption } from 'vite'
 import { buildEnd } from './buildEnd.config'
 
-const ogDescription = 'Le tooling front-end nouvelle génération'
+const ogDescription = 'Next Generation Frontend Tooling'
 const ogImage = 'https://vite.dev/og-image.jpg'
 const ogTitle = 'Vite'
 const ogUrl = 'https://vite.dev'
@@ -41,19 +41,19 @@ const additionalTitle = ((): string => {
 const versionLinks = ((): DefaultTheme.NavItemWithLink[] => {
   const oldVersions: DefaultTheme.NavItemWithLink[] = [
     {
-      text: 'Docs Vite 5',
+      text: 'Vite 5 Docs',
       link: 'https://v5.vite.dev',
     },
     {
-      text: 'Docs Vite 4',
+      text: 'Vite 4 Docs',
       link: 'https://v4.vite.dev',
     },
     {
-      text: 'Docs Vite 3',
+      text: 'Vite 3 Docs',
       link: 'https://v3.vite.dev',
     },
     {
-      text: 'Docs Vite 2',
+      text: 'Vite 2 Docs',
       link: 'https://v2.vite.dev',
     },
   ]
@@ -63,7 +63,7 @@ const versionLinks = ((): DefaultTheme.NavItemWithLink[] => {
     case 'local':
       return [
         {
-          text: 'Docs Vite 6(release)',
+          text: 'Vite 6 Docs (release)',
           link: 'https://vite.dev',
         },
         ...oldVersions,
@@ -75,7 +75,7 @@ const versionLinks = ((): DefaultTheme.NavItemWithLink[] => {
 
 export default defineConfig({
   title: `Vite${additionalTitle}`,
-  description: 'Le tooling front-end nouvelle génération',
+  description: 'Next Generation Frontend Tooling',
 
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
@@ -136,7 +136,6 @@ export default defineConfig({
     pt: { label: 'Português', link: 'https://pt.vite.dev' },
     ko: { label: '한국어', link: 'https://ko.vite.dev' },
     de: { label: 'Deutsch', link: 'https://de.vite.dev' },
-    fr: { label: 'Français', link: 'https://fr.vite.dev' },
   },
 
   themeConfig: {
@@ -144,7 +143,7 @@ export default defineConfig({
 
     editLink: {
       pattern: 'https://github.com/vitejs/vite/edit/main/docs/:path',
-      text: 'Suggérer des changements sur cette page',
+      text: 'Suggest changes to this page',
     },
 
     socialLinks: [
@@ -160,7 +159,7 @@ export default defineConfig({
       apiKey: '208bb9c14574939326032b937431014b',
       indexName: 'vitejs',
       searchParameters: {
-        facetFilters: ['tags:fr'],
+        facetFilters: ['tags:en'],
       },
     },
 
@@ -170,18 +169,18 @@ export default defineConfig({
     },
 
     footer: {
-      message: `Publié sous licence MIT. (${commitRef})`,
+      message: `Released under the MIT License. (${commitRef})`,
       copyright: 'Copyright © 2019-present VoidZero Inc. & Vite Contributors',
     },
 
     nav: [
       { text: 'Guide', link: '/guide/', activeMatch: '/guide/' },
-      { text: 'Configuration', link: '/config/', activeMatch: '/config/' },
+      { text: 'Config', link: '/config/', activeMatch: '/config/' },
       { text: 'Plugins', link: '/plugins/', activeMatch: '/plugins/' },
       {
-        text: 'Ressources',
+        text: 'Resources',
         items: [
-          { text: 'L\'équipe', link: '/team' },
+          { text: 'Team', link: '/team' },
           { text: 'Blog', link: '/blog' },
           { text: 'Releases', link: '/releases' },
           {
@@ -211,15 +210,15 @@ export default defineConfig({
                 link: 'https://viteconf.org',
               },
               {
-                text: 'Communauté DEV',
+                text: 'DEV Community',
                 link: 'https://dev.to/t/vite',
               },
               {
-                text: 'Historique des modifications',
+                text: 'Changelog',
                 link: 'https://github.com/vitejs/vite/blob/main/packages/vite/CHANGELOG.md',
               },
               {
-                text: 'Contribuer',
+                text: 'Contributing',
                 link: 'https://github.com/vitejs/vite/blob/main/CONTRIBUTING.md',
               },
             ],
@@ -238,15 +237,15 @@ export default defineConfig({
           text: 'Introduction',
           items: [
             {
-              text: 'Guide',
+              text: 'Getting Started',
               link: '/guide/',
             },
             {
-              text: 'Philosophie',
+              text: 'Philosophy',
               link: '/guide/philosophy',
             },
             {
-              text: 'Pourquoi utiliser Vite',
+              text: 'Why Vite',
               link: '/guide/why',
             },
           ],
@@ -255,7 +254,7 @@ export default defineConfig({
           text: 'Guide',
           items: [
             {
-              text: 'Fonctionnalités',
+              text: 'Features',
               link: '/guide/features',
             },
             {
@@ -263,39 +262,39 @@ export default defineConfig({
               link: '/guide/cli',
             },
             {
-              text: 'Plugins',
+              text: 'Using Plugins',
               link: '/guide/using-plugins',
             },
             {
-              text: 'Pré-build des dépendances',
+              text: 'Dependency Pre-Bundling',
               link: '/guide/dep-pre-bundling',
             },
             {
-              text: 'Gestion des ressources statiques',
+              text: 'Static Asset Handling',
               link: '/guide/assets',
             },
             {
-              text: 'Build pour la production',
+              text: 'Building for Production',
               link: '/guide/build',
             },
             {
-              text: 'Déployer un site statique',
+              text: 'Deploying a Static Site',
               link: '/guide/static-deploy',
             },
             {
-              text: 'Variables d\'environnement et Modes',
+              text: 'Env Variables and Modes',
               link: '/guide/env-and-mode',
             },
             {
-              text: 'Rendu côté serveur (SSR)',
+              text: 'Server-Side Rendering (SSR)',
               link: '/guide/ssr',
             },
             {
-              text: 'Integration avec le Backend',
+              text: 'Backend Integration',
               link: '/guide/backend-integration',
             },
             {
-              text: 'Dépannage',
+              text: 'Troubleshooting',
               link: '/guide/troubleshooting',
             },
             {
@@ -307,11 +306,11 @@ export default defineConfig({
               link: '/guide/rolldown',
             },
             {
-              text: 'Migration depuis la v5',
+              text: 'Migration from v5',
               link: '/guide/migration',
             },
             {
-              text: 'Changements majeurs',
+              text: 'Breaking Changes',
               link: '/changes/',
             },
           ],
@@ -320,32 +319,32 @@ export default defineConfig({
           text: 'APIs',
           items: [
             {
-              text: 'API des plugin',
+              text: 'Plugin API',
               link: '/guide/api-plugin',
             },
             {
-              text: 'API du HMR',
+              text: 'HMR API',
               link: '/guide/api-hmr',
             },
             {
-              text: 'API JavaScript',
+              text: 'JavaScript API',
               link: '/guide/api-javascript',
             },
             {
-              text: 'Configuration',
+              text: 'Config Reference',
               link: '/config/',
             },
           ],
         },
         {
-          text: 'API des environnements',
+          text: 'Environment API',
           items: [
             {
               text: 'Introduction',
               link: '/guide/api-environment',
             },
             {
-              text: 'Instances des environnements',
+              text: 'Environment Instances',
               link: '/guide/api-environment-instances',
             },
             {
@@ -365,38 +364,38 @@ export default defineConfig({
       ],
       '/config/': [
         {
-          text: 'Configuration',
+          text: 'Config',
           items: [
             {
-              text: 'Configurer Vite',
+              text: 'Configuring Vite',
               link: '/config/',
             },
             {
-              text: 'Options partagées',
+              text: 'Shared Options',
               link: '/config/shared-options',
             },
             {
-              text: 'Options serveur',
+              text: 'Server Options',
               link: '/config/server-options',
             },
             {
-              text: 'Options de construction',
+              text: 'Build Options',
               link: '/config/build-options',
             },
             {
-              text: 'Options de prévisualisation',
+              text: 'Preview Options',
               link: '/config/preview-options',
             },
             {
-              text: 'Options d\'optimisation des dépendances',
+              text: 'Dep Optimization Options',
               link: '/config/dep-optimization-options',
             },
             {
-              text: 'Options du rendu côté serveur (SSR)',
+              text: 'SSR Options',
               link: '/config/ssr-options',
             },
             {
-              text: 'Options du worker',
+              text: 'Worker Options',
               link: '/config/worker-options',
             },
           ],
@@ -404,18 +403,18 @@ export default defineConfig({
       ],
       '/changes/': [
         {
-          text: 'Changements majeurs',
+          text: 'Breaking Changes',
           link: '/changes/',
         },
         {
-          text: 'Actuel',
+          text: 'Current',
           items: [],
         },
         {
-          text: 'Futur',
+          text: 'Future',
           items: [
             {
-              text: 'this.environment dans les Hooks',
+              text: 'this.environment in Hooks',
               link: '/changes/this-environment-in-hooks',
             },
             {
@@ -423,21 +422,21 @@ export default defineConfig({
               link: '/changes/hotupdate-hook',
             },
             {
-              text: 'Passer au per-environnements APIS',
+              text: 'Move to per-environment APIs',
               link: '/changes/per-environment-apis',
             },
             {
-              text: 'Rendu côté serveur (SSR) avec l\'API ModuleRunner',
+              text: 'SSR using ModuleRunner API',
               link: '/changes/ssr-using-modulerunner',
             },
             {
-              text: 'Partager des plugins durant la construction',
+              text: 'Shared plugins during build',
               link: '/changes/shared-plugins-during-build',
             },
           ],
         },
         {
-          text: 'Passé',
+          text: 'Past',
           items: [],
         },
       ],
