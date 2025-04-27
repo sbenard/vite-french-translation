@@ -255,7 +255,7 @@ export default defineConfig({
           text: 'Guide',
           items: [
             {
-              text: 'Features',
+              text: 'Fonctionnalités',
               link: '/guide/features',
             },
             {
@@ -267,7 +267,7 @@ export default defineConfig({
               link: '/guide/using-plugins',
             },
             {
-              text: 'Pré-construire des dépendances',
+              text: 'Pré-build des dépendances',
               link: '/guide/dep-pre-bundling',
             },
             {
@@ -275,7 +275,7 @@ export default defineConfig({
               link: '/guide/assets',
             },
             {
-              text: 'Construire pour la Production',
+              text: 'Build pour la production',
               link: '/guide/build',
             },
             {
@@ -328,7 +328,7 @@ export default defineConfig({
               link: '/guide/api-hmr',
             },
             {
-              text: 'JavaScript',
+              text: 'API JavaScript',
               link: '/guide/api-javascript',
             },
             {
