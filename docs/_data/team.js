@@ -19,7 +19,7 @@ export const core = [
     title: 'Un être collaboratif',
     org: 'StackBlitz',
     orgLink: 'https://stackblitz.com/',
-    desc: 'Membre de l\'équipe principale Vite. Membre de l\'équipe Vue.',
+    desc: 'Membre de la Core Team Vite. Membre de l\'équipe Vue.',
     links: [
       { icon: 'github', link: 'https://github.com/patak-dev' },
       { icon: 'bluesky', link: 'https://bsky.app/profile/patak.dev' },
@@ -58,7 +58,7 @@ export const core = [
     avatar: 'https://github.com/sapphi-red.png',
     name: 'green',
     title: 'Développeur',
-    desc: 'Membre de l\'équipe principale Vite. Appellez moi sapphi ou green ou midori ;)',
+    desc: 'Membre de la Core Team Vite. Appellez moi sapphi ou green ou midori ;)',
     links: [
       { icon: 'github', link: 'https://github.com/sapphi-red' },
       { icon: 'bluesky', link: 'https://bsky.app/profile/sapphi.red' },
@@ -207,7 +207,7 @@ export const emeriti = [
   {
     avatar: 'https://github.com/haoqunjiang.png',
     name: 'Haoqun Jiang',
-    title: 'Membre de l\'équipe principale',
+    title: 'Membre de la Core Team',
     org: 'Vue.js',
     orgLink: 'https://vuejs.org/',
     desc: 'Garant des bonnes pratiques pour les outils Vue.js',
