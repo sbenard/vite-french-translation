@@ -129,25 +129,26 @@ test('should work', async () => {
 ```
 Certains helpers communs (e.g.`testDir`, `isBuild`, ou `editFile`) sont également disponibles dans les utils. Le code source est situé dans `playground/test-utils.ts`.
 
-Note: The test build environment uses a [different default set of Vite config](https://github.com/vitejs/vite/blob/main/playground/vitestSetup.ts#L102-L122) to skip transpilation during tests to make it faster. This may produce a different result compared to the default production build.
+Note : L’environnement de test de build utilise un [jeu de configuration Vite différent](https://github.com/vitejs/vite/blob/main/playground/vitestSetup.ts#L102-L122) pour ignorer la transpilation pendant les tests afin de rendre ceux-ci plus rapides. Cela peut produire un résultat différent par rapport au build de production par défaut.
 
-### Extending the Test Suite
+### Étendre le jeu de tests
 
-To add new tests, you should find a related playground to the fix or feature (or create a new one). As an example, static assets loading is tested in the [assets playground](https://github.com/vitejs/vite/tree/main/playground/assets). In this Vite app, there is a test for `?raw` imports with [a section defined in the `index.html` for it](https://github.com/vitejs/vite/blob/main/playground/assets/index.html#L121):
+Pour ajouter de nouveaux tests, vous devriez trouver un playground lié à la correction ou à la fonctionnalité (ou en créer un nouveau). Par exemple, le chargement des assets statiques est testé dans le [playground des assets](https://github.com/vitejs/vite/tree/main/playground/assets). Dans cet exemple d'application Vite, il y a un test pour `?raw import` avec [une section définie dans le `index.html` pour cela](https://github.com/vitejs/vite/blob/main/playground/assets/index.html#L121) :
+
 
 ```html
 <h2>?raw import</h2>
 <code class="raw"></code>
 ```
 
-This will be modified [with the result of a file import](https://github.com/vitejs/vite/blob/main/playground/assets/index.html#L151):
+Sera modifié [avec le résultat d’un import de fichier](https://github.com/vitejs/vite/blob/main/playground/assets/index.html#L151) :
 
 ```js
 import rawSvg from './nested/fragment.svg?raw'
 text('.raw', rawSvg)
 ```
 
-...where the `text` util is defined as:
+… où la fonction `text`est définie comme :
 
 ```js
 function text(el, text) {
@@ -155,7 +156,7 @@ function text(el, text) {
 }
 ```
 
-In the [spec tests](https://github.com/vitejs/vite/blob/main/playground/assets/__tests__/assets.spec.ts#L180), the modifications to the DOM listed above are used to test this feature:
+Dans les [tests de spécification](https://github.com/vitejs/vite/blob/main/playground/assets/__tests__/assets.spec.ts#L180), les modifications apportées au DOM ci-dessus sont utilisées pour tester cette fonctionnalité :
 
 ```js
 test('?raw import', async () => {
@@ -163,118 +164,120 @@ test('?raw import', async () => {
 })
 ```
 
-## Note on Test Dependencies
+## Note sur les dépendances de test
 
-In many test cases, we need to mock dependencies using `link:` and `file:` protocols. `pnpm` treats `link:` as symlinks and `file:` as hardlinks. To test dependencies as if they were copied into `node_modules`, use the `file:` protocol. Otherwise, use the `link:` protocol.
+Dans de nombreux cas de test, nous avons besoin de simuler des dépendances en utilisant les protocoles `link:` et `file:`. `pnpm` traite `link:` comme des liens symboliques et `file:` comme des liens physiques. Pour tester les dépendances comme si elles étaient copiées dans `node_modules`, utilisez le protocole`file:`. Sinon, utilisez le protocole `link:`.
 
-For a mock dependency, make sure you add a `@vitejs/test-` prefix to the package name. This will avoid possible issues like false-positive alerts.
+Pour une dépendance simulé, assurez-vous d’ajouter un préfixe `@vitejs/test-` au nom du package. Cela évitera les problèmes de faux positifs.
 
-## Debug Logging
+## Logging de débogage
 
-You can set the `DEBUG` environment variable to turn on debugging logs (e.g. `DEBUG="vite:resolve"`). To see all debug logs, you can set `DEBUG="vite:*"`, but be warned that it will be quite noisy. You can run `grep -r "createDebugger('vite:" packages/vite/src/` to see a list of available debug scopes.
+Vous pouvez définir la variable d’environnement `DEBUG` pour activer les logs de débogage (e.g.`DEBUG="vite:resolve"`). Pour voir tous les logs de débogage, vous pouvez définir `DEBUG="vite:*"`, mais soyez prévenu, cela sera assez verbeux. Vous pouvez lancer `grep -r "createDebugger('vite:" packages/vite/src/` pour voir la liste des domaine de débogage disponibles.
 
-## Pull Request Guidelines
+## Guidelines pour les PR
 
-- Checkout a topic branch from a base branch (e.g. `main`), and merge back against that branch.
+- Checkout une branche dédiée depuis d’une branche de base (e.g.`main`) et mergez-la vers cette branche.
 
-- If adding a new feature:
+- Si vous ajoutez une nouvelle fonctionnalité :
 
-  - Add accompanying test case.
-  - Provide a convincing reason to add this feature. Ideally, you should open a suggestion issue first, and have it approved before working on it.
+  - Ajoutez le cas de test correspondant.
+  - Fournissez une raison pertinente pour ajouter cette fonctionnalité. Idéalement, vous devriez ouvrir une Issue d’abord et celle-ci doit avoir été approuvé avant de commencer à travailler dessus.
 
-- If fixing a bug:
+- Si vous corrigez un bug :
 
-  - If you are resolving a special issue, add `(fix #xxxx[,#xxxx])` (#xxxx is the issue id) in your PR title for a better release log (e.g. `fix: update entities encoding/decoding (fix #3899)`).
-  - Provide a detailed description of the bug in the PR. Live demo preferred.
-  - Add appropriate test coverage if applicable.
+  - Si vous résolvez un problème déjà spécifié, ajoutez `(fix #xxxx[,#xxxx])`(#xxxx est l’identifiant du problème) dans le titre de votre PR pour un meilleur journal de publication (e.g.`fix: update entities encoding/decoding (fix #3899)`).
+  - Fournissez une description détaillée du bug dans la PR. Une démo live est préférable.
+  - Ajoutez la couverture des tests approprié, si applicable.
 
-- It's OK to have multiple small commits as you work on the PR. GitHub can automatically squash them before merging.
+- Il est acceptable de commiter plusieurs petites modifications tant que vous travaillez sur la PR. GitHub pourra les squasher automatiquement avant de fusionner.
 
-- Make sure tests pass!
+- Assurez-vous que les tests passent !
 
-- No need to worry about code style as long as you have installed the dev dependencies. Modified files are automatically formatted with Prettier on commit (by invoking [Git Hooks](https://git-scm.com/docs/githooks) via [simple-git-hooks](https://github.com/toplenboren/simple-git-hooks)).
+- Pas besoin de vous soucier du style de code, tant que vous avez installé les dépendances de développement. Les fichiers modifiés sont automatiquement formatés avec Prettier lors du commit (en appelant les [Git Hooks](https://git-scm.com/docs/githooks) via [simple-git-hooks](https://github.com/toplenboren/simple-git-hooks)).
 
-- PR title must follow the [commit message convention](./.github/commit-convention.md) so that changelogs can be automatically generated.
+- Le titre de la PR doit suivre la [convention de message de commit](./.github/commit-convention.md) pour que les journaux de release puissent être générés automatiquement.
 
 ## Maintenance Guidelines
 
 > The following section is mostly for maintainers who have commit access, but it's helpful to go through if you intend to make non-trivial contributions to the codebase.
 
-### Issue Triaging Workflow
+### Workflow de tri des Issues
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./.github/issue-workflow-dark.png">
   <img src="./.github/issue-workflow.png">
 </picture>
 
-### Pull Request Review Workflow
+### Workflow de revue des PR
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./.github/pr-workflow-dark.png">
   <img src="./.github/pr-workflow.png">
 </picture>
 
-## Notes on Dependencies
+## Notes sur les dépendances
 
-Vite aims to be lightweight, and this includes being aware of the number of npm dependencies and their size.
+Vite vise à être léger et cela inclut le nombre de dépendances npm et leur taille.
 
-We use Rollup to pre-bundle most dependencies before publishing! Therefore, most dependencies, even those used in runtime source code, should be added under `devDependencies` by default. This also creates the following constraints that we need to be aware of in the codebase.
+Nous utilisons Rollup pour pré-prebundle la plupart des dépendances avant de publier ! Par conséquent, la plupart des dépendances, même celles utilisées dans le code source en cours d’exécution, doivent être ajoutées par défaut sous`devDependencies`. Cela crée également les contraintes suivantes que nous devons être conscientes du codebase.
 
-### Usage of `require()`
+### Usage de `require()`
 
-In some cases, we intentionally lazy-require some dependencies to improve start-up performance. However, note that we cannot use simple `require('somedep')` calls since these are ignored in ESM files, so the dependency won't be included in the bundle, and the actual dependency won't even be there when published since they are in `devDependencies`.
+Dans certains cas, nous utilisons intentionnellement des dépendances de manière paresseuse (lazy load) pour améliorer les performances de démarrage. Cependant, notez que nous ne pouvons pas utiliser des appels simples `require('somedep')` car ceux-ci sont ignoré dans les fichiers ESM, donc la dépendance ne sera pas incluse dans le bundle et la dépendance réelle ne sera même pas là lorsqu’elle est publiée puisqu’elles sont dans `devDependencies`.
 
-Instead, use `(await import('somedep')).default`.
+Au lieu de cela, utilisez`(await import('somedep')).default`.
 
-### Think Before Adding a Dependency
+### Réfléchir avant d’ajouter une dépendance
 
 Most deps should be added to `devDependencies` even if they are needed at runtime. Some exceptions are:
+La plupart des dépendances devraient être ajoutées à `devDependencies` même si elles sont nécessaires au runtime. Certaines exceptions sont :
 
-- Type packages. Example: `@types/*`.
-- Deps that cannot be properly bundled due to binary files. Example: `esbuild`.
-- Deps that ship their own types that are used in Vite's own public types. Example: `rollup`.
+- Packages de types. Exemple : `@types/*`.
+- Les dépendances qui ne peuvent pas être correctement bundlées en raison de fichiers binaires. Exemple : `esbuild`.
+- Les dépendances qui livrent leurs propres types utilisés dans les types publics de Vite. Exemple :`rollup`.
 
-Avoid deps with large transitive dependencies that result in bloated size compared to the functionality it provides. For example, `http-proxy` itself plus `@types/http-proxy` is a little over 1MB in size, but `http-proxy-middleware` pulls in a ton of dependencies that make it 7MB(!) when a minimal custom middleware on top of `http-proxy` only requires a couple of lines of code.
+Évitez les grandes dépendances transitives qui entraînent une taille excessive par rapport à la fonctionnalité qu’elles fournissent. Par exemple, `http-proxy` ne fait en lui même qu'un peu plus de 1MB, mais `http-proxy-middleware` tire une tonne de dépendances qui le passent à 7MB(!) lorsqu’un middleware personnalisé minimal sur `http-proxy` n’exige que quelques lignes de code.
 
-### Ensure Type Support
+### Assurer le support des types
 
-Vite aims to be fully usable as a dependency in a TypeScript project (e.g. it should provide proper typings for VitePress), and also in `vite.config.ts`. This means technically a dependency whose types are exposed needs to be part of `dependencies` instead of `devDependencies`. However, this also means we won't be able to bundle it.
+Vite vise à être entièrement utilisable comme dépendance dans un projet TypeScript (par exemple, il doit fournir des types corrects pour VitePress), et également dans `vite.config.ts`. Cela signifie techniquement que toute dépendance dont les types sont exposés doit être ajoutée à `dependencies` au lieu de `devDependencies`. Cependant, cela signifie également que nous ne pourrons pas le lier.
 
-To get around this, we inline some of these dependencies' types in `packages/vite/src/types`. This way, we can still expose the typing but bundle the dependency's source code.
+Pour contourner cela, nous intégrons certains types de ces dépendances dans `packages/vite/src/types`. De cette façon, nous pouvons toujours exposer les types, mais lier le code source de la dépendance.
 
-Use `pnpm run build-types-check` to check that the bundled types do not rely on types in `devDependencies`.
+Utilisez `pnpm run build-types-check` pour vérifier que les types liés ne dépendent pas de types dans `devDependencies`.
 
-For types shared between client and node, they should be added into `packages/vite/types`. These types are not bundled and are published as is (though they are still considered internal). Dependency types within this directory (e.g. `packages/vite/types/chokidar.d.ts`) are deprecated and should be added to `packages/vite/src/types` instead.
+Pour les types partagés entre le client et node, ils doivent être ajoutés dans `packages/vite/types`. Ces types ne sont pas liés et sont publiés tels quels (bien qu’ils soient toujours considérés comme internes). Les types de dépendances dans ce répertoire (ex: `packages/vite/types/chokidar.d.ts`) sont obsolètes et doivent être ajoutés à `packages/vite/src/types` la place.
 
-### Think Before Adding Yet Another Option
 
-We already have many config options, and we should avoid fixing an issue by adding yet another one. Before adding an option, consider whether the problem:
+### Réfléchissez avant d’ajouter encore une option
 
-- is really worth addressing
-- can be fixed with a smarter default
-- has workaround using existing options
-- can be addressed with a plugin instead
+Nous avons déjà de nombreuses options de configuration et nous devons éviter de résoudre un problème en rajoutant une autre option. Avant d’ajouter une option, demandez vous si le problème :
 
-## Release
+- est vraiment digne d’attention
+- peut être résolu avec une valeur par défaut plus élégante
+- a une solution de contournement, utilisant des options existantes
+- peut être résolu avec un plugin au lieu d’une option
 
-If you have publish access, the steps below explain how to cut a release for a package. There are two phases for the release step: "Release" and "Publish".
+## Relase
 
-"Release" is done locally to generate the changelogs and git tags:
+Si vous avez accès à la publication, les étapes ci-dessous expliquent comment couper une release pour un package. Il y a deux phases pour la procédure de release : « Release » et « Publish ».
 
-1. Make sure the git remote for https://github.com/vitejs/vite is set as `origin`.
-2. In the `vite` project root `main` branch, run `git pull` and `pnpm i` to get it up-to-date.
-3. Run `pnpm release` and follow the prompts to cut a release for a package. It will generate the changelog, a git release tag, and push them to `origin`. You can run with the `--dry` flag to test it out.
-4. When the command finishes, it will provide a link to https://github.com/vitejs/vite/actions/workflows/publish.yml.
-5. Click the link to visit the page, and follow the next steps below.
+« Release » est fait localement pour générer les journaux de release et les tags git :
 
-"Publish" is done on GitHub Actions to publish the package to npm:
+1. Assurez-vous que le remote git pour https://github.com/vitejs/vite est défini comme `origin`.
+2. Dans le répertoire racine du projet `vite`, branche`main`, exécutez `git pull` et `pnpm i` pour le mettre à jour.
+3. Exécutez `pnpm release` et suivez les invites pour couper une release pour un package. Il générera le journal de release, un tag git et les poussera à `origin`. Vous pouvez lancer avec le flag `--dry` pour tester.
+4. Quand la commande est terminée, il fournira un lien vers https://github.com/vitejs/vite/actions/workflows/publish.yml.
+5. Cliquez sur le lien pour visiter la page, et suivez les étapes ci-dessous.
 
-1. Shortly in the workflows page, a new workflow will appear for the released package and is waiting for approval to publish to npm.
-2. Click on the workflow to open its page.
-3. Click on the "Review deployments" button in the yellow box, a popup will appear.
-4. Check "Release" and click "Approve and deploy".
-5. The package will start publishing to npm.
+« Publish » est fait sur GitHub Actions pour publier le package à npm :
 
-## Docs Translation Contribution
+1. Quelques instants après la commande, un nouveau workflow apparaîtra pour le package publié et sera en attente d’approbation pour publier sur npm.
+2. Cliquez sur le workflow pour ouvrir sa page.
+3. Cliquez sur le bouton « Review deployments » dans la boîte jaune, une fenêtre popup apparaîtra.
+4. Vérifiez « Release » et cliquez sur « Approve and deploy ».
+5. Le package commencera à être publié sur npm.
 
-To add a new language to the Vite docs, see [`vite-docs-template`](https://github.com/tony19/vite-docs-template/blob/main/.github/CONTRIBUTING.md).
+## Contribution à la traduction des docs
+
+Pour ajouter une nouvelle langue aux docs de Vite, voir[`vite-docs-template`](https://github.com/tony19/vite-docs-template/blob/main/.github/CONTRIBUTING.md).
